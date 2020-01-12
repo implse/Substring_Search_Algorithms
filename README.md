@@ -13,4 +13,6 @@ ex : needle = "AAAAAB" and the haystack = "AAAAAAAAAAAAAAAB"
 
 The average case, this takes `O(n + m)` steps, where `n` is the length of the haystack and `m`. is the length of the needle.
 
+The worst case time complexity is `O(n*m)`.
+
 A substring search algorithm usually returns the index of the substring that has been found.
