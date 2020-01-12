@@ -11,4 +11,6 @@ In computer science, string-searching algorithms, sometimes called string-matchi
 
 ex : needle = "AAAAAB" and the haystack = "AAAAAAAAAAAAAAAB"
 
-The average case, this takes `O(n + m)` steps, where `n` is the length of the haystack and `m. is the length of the needle
+The average case, this takes `O(n + m)` steps, where `n` is the length of the haystack and `m`. is the length of the needle.
+
+A substring search algorithm usually returns the index of the substring that has been found.
