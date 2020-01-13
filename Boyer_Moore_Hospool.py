@@ -1,22 +1,45 @@
 # Boyer Moore Hospool algorithm is a substring searching algorithm
 
+# Time O(n)
+def preprocess(needle):
+    bad_match_table = dict()
+    for index, char in enumerate(needle):
+        max_shift = max(1, len(needle) - index - 1)
+        bad_match_table[char] = max_shift
+    return bad_match_table
+
+def boyer_moore(needle, haystack):
+    table = preprocess(needle)
+    index = 0
+    while index <= len(haystack) - len(needle):
+        offset = 0
+        for j in range(len(needle)-1, -1, -1):
+            if haystack[index+j] != needle[j]:
+                offset = table.get(haystack[index+j], len(needle))
+                index += offset
+                break
+        if offset == 0:
+            return index
+    return -1
+
+needle = "jazz"
+haystack = "New Orleans jazz begin in 1910"
+
+print(boyer_moore(needle, haystack))
+
+# Time O(n+m)
 def boyer_moore(needle, haystack):
     table = preprocess(needle)
     offset = 0
-    i = len(needle) - 1
-    while len(haystack) - offset >= len(needle):
-        if same(haystack[offset + i], needle):
-            return offset
-        i -= 1
-    return -1
 
-def same(str1, needle):
-    i = len(needle) - 1
-    while str1[i] == needle[i]:
-        if i == 0:
-            return True
-        i -= 1
-    return False
+    while len(haystack) - offset >= len(needle):
+        i = len(needle) - 1
+        while haystack[offset + i] == needle[i]:
+            if i == 0:
+                return offset
+            i -= 1
+        offset += table.get(haystack[offset + len(needle) - 1], len(needle))
+    return -1
 
 def preprocess(word):
     table = dict()
