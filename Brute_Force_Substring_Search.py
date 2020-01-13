@@ -12,15 +12,15 @@ def naive_search(needle, haystack):
         offset += 1
     return -1
 
-# Loop and slice method
+# Loop and python slice method
 def brute_search(needle, haystack):
     for i in range(len(haystack)):
         if haystack[i:len(needle) + i] == needle:
             return i
     return - 1
 
-needle = "jazz" # 7
-haystack = "Ornette Coleman, né le 9 mars 1930 à Fort Worth (Texas) est un saxophoniste ténor et alto, trompettiste, violoniste et compositeur, précurseur majeur du free jazz."
+needle = "jazz" # 4
+haystack = "Ornette Coleman, né le 9 mars 1930 à Fort Worth (Texas) est un saxophoniste ténor et alto, trompettiste, violoniste et compositeur, précurseur majeur du free jazz." #163
 
 print(naive_search(needle, haystack))
 print(brute_search(needle, haystack))

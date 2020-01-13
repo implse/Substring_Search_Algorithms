@@ -11,8 +11,30 @@ In computer science, string-searching algorithms, sometimes called string-matchi
 
 ex : needle = "AAAAAB" and the haystack = "AAAAAAAAAAAAAAAB"
 
-The average case, this takes `O(n + m)` steps, where `n` is the length of the haystack and `m`. is the length of the needle.
-
-The worst case time complexity is `O(n*m)`.
+The average case, this takes `O(n*m)` steps, where `n` is the length of the haystack and `m`. is the length of the needle.
 
 A substring search algorithm usually returns the index of the substring that has been found.
+
+## Boyer Moore
+
+- Boyer–Moore string search is an efficient string searching algorithm that is the standard benchmark for practical string-search literature.
+
+- The algorithm preprocesses the string being searched for (the pattern or needle), but not the string being searched in (the text or haystack).
+
+- The algorithm runs faster as the length of the pattern increases.
+
+#### Mad Match Table
+
+This table defines how many letters to shift the pattern when a mismatch occurs.
+
+This table never has elements smaller than 1.
+
+bad match table formula : `max(1, len(needle) - index - 1)`
+
+We keep comparing the pattern to the text starting from the rightmost character in the pattern. When mismatch occurs we have to shift the pattern to the right corresponding to the value in the bad match table.
+
+Because unlike brute force search we can skip several characters in one iteration the algorithm will be faster.
+
+The average time complexity is `O(m+n)` steps, where `n` is the length of the haystack and `m`. is the length of the needle.
+
+The worst case time complexity is `O(n*m)`.
