@@ -17,11 +17,11 @@ A substring search algorithm usually returns the index of the substring that has
 
 ## Boyer Moore
 
-- Boyer–Moore string search is an efficient string searching algorithm that is the standard benchmark for practical string-search literature.
+- Boyer–Moore string search algorithm is an efficient string searching algorithm that is the standard benchmark for practical string-search literature.
 
-- The algorithm preprocesses the string being searched for (the pattern or needle), but not the string being searched in (the text or haystack).
+- The algorithm pre-process the string being searched for (the pattern or needle), but not the string being searched in (the text or haystack).
 
-- The algorithm runs faster as the length of the pattern increases.
+- The algorithm runs faster as the length of the pattern increase.
 
 #### Mad Match Table
 
@@ -35,6 +35,6 @@ We keep comparing the pattern to the text starting from the rightmost character 
 
 Because unlike brute force search we can skip several characters in one iteration the algorithm will be faster.
 
-The average time complexity is `O(m+n)` steps, where `n` is the length of the haystack and `m`. is the length of the needle.
+The average time complexity is `O(m+n)` steps, where `n` is the length of the haystack and `m` is the length of the needle.
 
 The worst case time complexity is `O(n*m)`.

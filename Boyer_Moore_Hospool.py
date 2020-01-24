@@ -11,11 +11,11 @@ def preprocess(needle):
 def boyer_moore(needle, haystack):
     table = preprocess(needle)
     index = 0
-    while index <= len(haystack) - len(needle):
+    while len(haystack) - len(needle) >= index:
         offset = 0
-        for j in range(len(needle)-1, -1, -1):
+        for j in reversed(range(len(needle) - 1)):
             if haystack[index+j] != needle[j]:
-                offset = table.get(haystack[index+j], len(needle))
+                offset = table.get(haystack[index + j], len(needle))
                 index += offset
                 break
         if offset == 0:
@@ -25,7 +25,11 @@ def boyer_moore(needle, haystack):
 needle = "jazz"
 haystack = "New Orleans jazz begin in 1910"
 
+s = "ATErUUeUkVFVNfxfUKtntOErKmZLUpWpHRASdxjUhzzxygmnNnKabPPgPqy vCLSCZObaNNGCXQssfEEDDJIPBwtkMmTniKa pBlrd"
+x =  "vCLSCZObaNNGCXQssfEEDDJIPBwtkMmTniKa"
+# ATErUUeUkVFVNfxfUKtntOErKmZLUpWpHRASdxjUhzzxygmnNnKabPPgPqy vCLSCZObaNNGCXQssfEEDDJIPBwtkMmTniKa pBlrd
 print(boyer_moore(needle, haystack))
+print(boyer_moore(s, x))
 
 # Time O(n+m)
 def boyer_moore(needle, haystack):
