@@ -1,5 +1,6 @@
 # Knuth Morris Pratt algorithm is a substring searching algorithm
 
+# Space : O(m)
 def construct_pi_table(pattern):
     pi_table = [0]*len(pattern)
     index = 0
@@ -17,17 +18,20 @@ def construct_pi_table(pattern):
                 i += 1
     return pi_table
 
+# Time O(m + n)
 def knuth_morris_pratt(text, pattern):
     pi_table = construct_pi_table(pattern)
     i = 0
     j = 0
     while i < len(text) and j < len(pattern):
+        # matching
         if text[i] == pattern[j]:
             i += 1
             j += 1
         if j == len(pattern):
-            print("Patter found at index :", str(i - j))
+            print("Pattern found at index :", str(i - j))
             j = pi_table[j - 1]
+        # mismatch
         elif i < len(text) and text[i] != pattern[j]:
             if j != 0:
                 j = pi_table[j - 1]
