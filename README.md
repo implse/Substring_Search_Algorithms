@@ -52,3 +52,8 @@ the pattern itself contains enough information to dictate where the new examinat
 
 - The algorithm must preprocess the pattern with `O(m)` additional space complexity.
 - Knuth Morris Pratt has `O(n + m)` linear running time complexity even in the worst-case scenario.
+
+#### Partial Match Table or Pi table
+
+This table analyses the pattern and checks whether some prefixes are matching any suffixes in the pattern.
+We look for the longest prefix which is the same as some suffixes.
