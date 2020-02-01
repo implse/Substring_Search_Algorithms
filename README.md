@@ -2,6 +2,12 @@
 
 In computer science, string-searching algorithms, sometimes called string-matching algorithms, are an important class of string algorithms that try to find a place where one or several strings (also called patterns) are found within a larger string or text. (wikipedia)
 
+The string match problem also known as "the needle in a haystack" has a lot of application :
+
+  - Pattern recognition
+  - Document matching
+  - DNA matching
+
 
 ## Brute Force or Naïve substring search
 
@@ -38,3 +44,8 @@ Because unlike brute force search we can skip several characters in one iteratio
 The average time complexity is `O(m+n)` steps, where `n` is the length of the haystack and `m` is the length of the needle.
 
 The worst case time complexity is `O(n*m)`.
+
+## Knuth Morris Pratt
+
+- The algorithm must preprocess the pattern with `O(m)` additional space complexity.
+- Knuth Morris Pratt has `O(n + m)` linear running time complexity even in the worst-case scenario.
