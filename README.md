@@ -47,5 +47,8 @@ The worst case time complexity is `O(n*m)`.
 
 ## Knuth Morris Pratt
 
+The KMP is a linear time algorithm that exploits the observation that every time a match or a mismatch happens,
+the pattern itself contains enough information to dictate where the new examination should begin from.
+
 - The algorithm must preprocess the pattern with `O(m)` additional space complexity.
 - Knuth Morris Pratt has `O(n + m)` linear running time complexity even in the worst-case scenario.
